@@ -1,0 +1,7 @@
+.productDues--link{
+    text-decoration: underline;
+}
+.productDues--link::hover,
+.productDues--link::focus{
+    background-color: transparent;
+}
