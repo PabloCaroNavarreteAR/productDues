@@ -3,8 +3,16 @@ import { useProduct } from 'vtex.product-context';
 import CurrencyFormat from 'react-currency-format';
 import { Modal, ButtonPlain } from 'vtex.styleguide';
 import { useRuntime } from 'vtex.render-runtime'
+import { useCssHandles } from 'vtex.css-handles'
+import './style.css';
 
 const productDues = (props) => {
+    const CSS_HANDLES = [
+        'productDues--container',
+        'productDues--text',
+        'productDues--logo'
+    ]
+    const { handles } = useCssHandles(CSS_HANDLES)
     const runtime = useRuntime();
     const isMobile = runtime.deviceInfo.isMobile;
 
@@ -16,10 +24,21 @@ const productDues = (props) => {
     return (
         <>
         {isVisible && 
-            <div className="flex items-center flex-wrap mb5">
-                ó {cuotas} {text} <CurrencyFormat value={productPrice/cuotas} decimalScale={2} displayType={'text'} prefix={'$'} className="db ml2 mr2"/> con 
-                    <img src={logo && logo} alt="" className="db p5 ml2 mr2" width="70" height="auto"/>
-                <ButtonPlain onClick={() => setOpen(!isOpen)}>{textLink}</ButtonPlain>
+            <div className={`${handles['productDues--container']} flex items-center flex-wrap mb5`}>
+                <span className={`flex items-center flex-wrap ${handles['productDues--text']}`}>
+                    ó {cuotas} {text}  
+                    <CurrencyFormat
+                        value={productPrice/cuotas}
+                        decimalScale={2}
+                        displayType={'text'}
+                        prefix={'$'}
+                        className={`${handles['productDues--text']} db ml2 mr2`}
+                    /> con
+                    <img src={logo && logo} alt="" className={`${handles['productDues--logo']} db p5 ml2 mr2`} height="30"/>
+                <ButtonPlain onClick={() => setOpen(!isOpen)}>
+                    {textLink}
+                </ButtonPlain>
+                </span>
                 <Modal centered isOpen={isOpen} onClose={() => setOpen(!isOpen)}>
                     {
                         isMobile ? 
@@ -95,8 +114,8 @@ productDues.getSchema = props => {
 }
 productDues.defaultProps = {
     cuotas:'4',
-    text:'cuotas con DÉBITO de',
-    logo:'https://www.gocuotas.com/assets/woocommerce.png',
+    text:'cuotas con tarjeta de DÉBITO y sin interés de',
+    logo:'https://www.gocuotas.com/assets/logo-mobile.svg',
     altLogo:'GO Cuotas',
     textLink:'Conoce más',
     imagenModal:'https://doto.vtexassets.com/assets/vtex.file-manager-graphql/images/2c2433a7-579b-4c45-94d0-53e02dfcf93c___61036451481638228342953b08fa0189.jpg',
