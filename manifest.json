@@ -4,6 +4,10 @@
   "version": "0.0.0",
   "title": "CHANGE_ME",
   "description": "CHANGE_ME",
+  "billingOptions": {
+    "free": true,
+    "termsURL": "https://url.to.the/terms"
+  },
   "builders": {
     "react": "3.x",
     "messages": "1.x",
