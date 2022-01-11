@@ -118,9 +118,9 @@ productDues.defaultProps = {
     logo:'https://www.gocuotas.com/assets/logo-mobile.svg',
     altLogo:'GO Cuotas',
     textLink:'Conoce más',
-    imagenModal:'https://doto.vtexassets.com/assets/vtex.file-manager-graphql/images/2c2433a7-579b-4c45-94d0-53e02dfcf93c___61036451481638228342953b08fa0189.jpg',
-    imagenModalDescription:'',
-    imagenModalMobile:'https://doto.vtexassets.com/assets/vtex.file-manager-graphql/images/2c2433a7-579b-4c45-94d0-53e02dfcf93c___61036451481638228342953b08fa0189.jpg',
-    imagenModalDescriptionMobile:''
+    imagenModal:'https://www.gocuotas.com/assets/vtex/banner_desktop.jpg',
+    imagenModalDescription:'GO Cuotas',
+    imagenModalMobile:'https://www.gocuotas.com/assets/vtex/banner_mobile.jpg',
+    imagenModalDescriptionMobile:'Go Cuotas'
 }
 export default productDues;
