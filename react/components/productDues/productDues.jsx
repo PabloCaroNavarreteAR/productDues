@@ -23,7 +23,7 @@ const productDues = (props) => {
 
     return (
         <>
-        {isVisible && 
+        {isVisible && productPrice &&
             <div className={`${handles['productDues--container']} flex items-center flex-wrap mb5`}>
                 <span className={`flex items-center flex-wrap ${handles['productDues--text']}`}>
                     ó {cuotas} {text}  
