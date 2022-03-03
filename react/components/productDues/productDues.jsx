@@ -15,15 +15,20 @@ const productDues = (props) => {
     const { handles } = useCssHandles(CSS_HANDLES)
     const runtime = useRuntime();
     const isMobile = runtime.deviceInfo.isMobile;
-
+    
     const product = useProduct();
     const productPrice = product.product.priceRange.sellingPrice.lowPrice;
+    const selectedItem = product.selectedItem
+    const sellers = selectedItem.sellers
+    console.log('item seleccionado', selectedItem)
+    const isAvailable = sellers.map((seller) => seller.commertialOffer.AvailableQuantity > 0)
+    console.log('disponible', isAvailable[0])
     const {logo, cuotas, isVisible, text, imagenModal, imagenModalDescription, imagenModalMobile, imagenModalDescriptionMobile, textLink} = props;
     const [isOpen, setOpen] = useState(false)
 
     return (
         <>
-        {isVisible && productPrice &&
+        {isVisible && productPrice && isAvailable[0] &&
             <div className={`${handles['productDues--container']} flex items-center flex-wrap mb5`}>
                 <span className={`flex items-center flex-wrap ${handles['productDues--text']}`}>
                     ó {cuotas} {text}  
